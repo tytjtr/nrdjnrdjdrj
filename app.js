@@ -162,6 +162,8 @@ function formatFileSize(bytes) {
 // Listen for fallback events
 window.onpopstate = function() {
     var path = window.location.pathname;
+    path = path.replace(/^\/subtitles/, "");
+    console.log(path);
     render(path);
 }
 
@@ -169,6 +171,8 @@ window.onpopstate = function() {
 $(function() {
     init();
     var path = window.location.pathname;
+    path = path.replace(/^\/subtitles/, "");
+    console.log(path);
     $("body").on("click", '.folder', function() {
         var url = $(this).attr('href');
         history.pushState(null, null, url);
